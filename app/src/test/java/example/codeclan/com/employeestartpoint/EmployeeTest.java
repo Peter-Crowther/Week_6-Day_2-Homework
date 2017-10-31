@@ -7,11 +7,13 @@ import static org.junit.Assert.*;
 public class EmployeeTest {
     Employee employee;
     Manager manager;
+    Director director;
 
     @Before
     public void before() {
         employee = new Employee(1, "Wilma", "AB123456C", 30000.00 );
         manager  = new Manager(2, "Campbell", "AD123456D",45000.00, "Mailroom" );
+        director = new Director(3, "Malcolm", "DD123456D", 65000.00, "Canteen", 500000.00);
     }
 
     @Test
@@ -38,6 +40,11 @@ public class EmployeeTest {
     @Test
     public void canGetDeptName() {
         assertEquals("Mailroom", manager.getDeptName());
+    }
+
+    @Test
+    public void canGetBudget() {
+        assertEquals(500000.00, director.getBudget(), 0.001);
     }
 
 
